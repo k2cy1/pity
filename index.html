@@ -54,42 +54,11 @@
       transition: background 0.4s ease, color 0.4s ease;
     }
     
-    .theme-toggle {
-      position: fixed;
-      top: 28px;
-      right: 28px;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      z-index: 100;
-      opacity: 0.75;
-    }
-    
-    .theme-toggle:hover {
-      opacity: 1;
-      transform: scale(1.08);
-    }
-    
-    .theme-toggle::before {
-      content: '';
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--bg-start);
-      transition: background 0.3s ease;
-    }
-    
     .page {
       width: min(720px, calc(100% - 34px));
       margin: 0 auto;
-      padding: 70px 0 34px;
+      padding: 70px 0 60px;
+      position: relative;
     }
     
     main { 
@@ -143,24 +112,56 @@
       font: 600 15px/1.5 Georgia, "Noto Serif SC", serif;
       letter-spacing: .24em;
       transition: all 0.4s ease;
+      position: relative;
+    }
+    
+    .theme-toggle {
+      position: absolute;
+      bottom: 34px;
+      right: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      opacity: 0.5;
+    }
+    
+    .theme-toggle:hover {
+      opacity: 0.85;
+      transform: scale(1.1);
+    }
+    
+    .theme-toggle::before {
+      content: '';
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg-start);
+      transition: background 0.3s ease;
     }
     
     @media (max-width: 560px) {
       .page { 
         width: min(100% - 30px, 720px); 
         padding-top: 42px; 
+        padding-bottom: 50px;
       }
       
       .theme-toggle {
-        top: 20px;
-        right: 20px;
-        width: 38px;
-        height: 38px;
+        bottom: 28px;
+        width: 28px;
+        height: 28px;
       }
       
       .theme-toggle::before {
-        width: 16px;
-        height: 16px;
+        width: 12px;
+        height: 12px;
       }
       
       p { 
@@ -181,8 +182,6 @@
   </style>
 </head>
 <body data-theme="blue">
-  <button class="theme-toggle" aria-label="切换主题"></button>
-  
   <div class="page">
     <main>
       <section>
@@ -323,7 +322,11 @@
         <p>这件事确实很难过。</p>
       </section>
     </main>
-    <footer>20260615</footer>
+    
+    <footer>
+      20260615
+      <button class="theme-toggle" aria-label="切换主题"></button>
+    </footer>
   </div>
   
   <script>
